@@ -66,9 +66,9 @@ struct StatusCode {
 }
 
 fn main() {
-    // if let Err(_) = std::env::var("CARGO_NTSTATUS_GENERATE") {
-    //     return; // Skip generation if var is not set.
-    // }
+    if let Err(_) = std::env::var("CARGO_NTSTATUS_GENERATE") {
+        return; // Skip generation if var is not set.
+    }
 
     let reg = Handlebars::new();
     let mut file = File::create("src/ntstatus.rs").unwrap();
